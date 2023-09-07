@@ -4,16 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cajero</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div>
-        <input class="input"
-        placeholder="Cantidad a depositar"></input>
-        <button class="button">Depositar</button>
-        <div class="notification">
+        <input 
+        id="deposito"
+        class="input"
+        placeholder="Cantidad a depositar"
+        type="number">
+    </input>
+        <button 
+        id="botonDeposito"
+        class="button">
+        Depositar
+    </button>
+    <button 
+    id="botonRetiro"
+    class="button">
+    Retirar
+    </button>
+    <button 
+    id="botonConsulta"
+    class="button">
+    Consultar saldo
+    </button>
+        <div class="notification is-primary">
             <button class="delete"></button>
-            <span>dinero en tu cuenta:</span>
+                <span id="cuentaDinero"> Dinero en la cuenta: </span>
           </div>
+        <div id = "botonError" class="button is-danger esconderNotificacion">
+          <button>
+        <span>
+          Saldo
+        </span>
+          </button>
+        </div> 
+        
     </div>
     <script src="script.js"></script>
 </body>
