@@ -7,14 +7,11 @@ const botonConsulta = document.querySelector ('#botonConsulta')
 const dineroEnCuenta = document.querySelector ('#cuentaDinero')
 const saldoInsuficiente = document.querySelector ('#botonError')
 const escondido = document.querySelector ('#botonError span')
+const saludo = document.querySelector ('#saludo')
+const botonSalir = document.querySelector ('#salir')
 
-const cuentas = {
-    saldo : 100,
-    nombre : "Malinali",
-    id: "001",
-    cuenta: "Malinali",
-    contraseña: "1234"
-}
+let cuentas = null
+
 // Agrega el saldo con el boton***
 botonDeposito.addEventListener('click', function(e) {
         const deposito = input.value
@@ -47,9 +44,9 @@ botonRetiro.addEventListener('click', function(e) {
 botonConsulta.addEventListener('click', function(e) {
     const deposito = input.value
     console.log ({deposito})
-    const valorDeposito = +deposito
+    const valorDeposito = Number(deposito)
     const saldo = cuentas.saldo
-    const agregarSaldo = (saldo + valorDeposito)
+    const agregarSaldo = saldo 
     dineroEnCuenta.innerText = agregarSaldo
     cuentas.saldo = agregarSaldo
 })
@@ -64,8 +61,16 @@ function cerrarNotificacion() {
    // Sirve para cargar todo el DOM se carga TODO***
 
    addEventListener('DOMContentLoaded', function(){
-
-    const saldoActual = localStorage.getItem ('saldo')
-    cuentas.saldo = +saldoActual
+    const cuentasDeUsuario = localStorage.getItem ('cuentasDeUsuario')
+    const cuentaParse = JSON.parse(cuentasDeUsuario)
+    cuentas = cuentaParse
+    saludo.innerHTML = "<h1>" + "Bienvenido/a " + cuentaParse.nombre + "</h1>"
+    cuentas.saldo = Number(saldoActual)
     saldoInsuficiente.innerHTML = saldoActual
+    
    })
+
+   botonSalir.addEventListener('click', function() {
+   localStorage.clear()
+   window.location = "index.html"
+})
