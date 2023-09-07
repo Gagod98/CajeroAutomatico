@@ -15,14 +15,14 @@ const cuentasDeUsuario = [
         nombre :"Gera",
         id: "001",
         cuenta:"Gera",
-        contraseña:"1234"
+        contraseña:"4321"
         },
         {
             saldo : 26,
             nombre : "Maui",
             id: "001",
             cuenta: "Maui",
-            contraseña: "1234"
+            contraseña: "0987"
             }
 ]
 

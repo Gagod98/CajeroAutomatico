@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Cuanto desea retirar:</h1>
+    <input 
+        id="deposito"
+        class="input"
+        placeholder="Cantidad a Retirar"
+        type="number">
+    </input>
+<button 
+    id="botonRetirar"
+    class="button">
+    Siguiente
+</button>
+<div class="notification is-primary">
+    <button class="delete"></button>
+        <span id="cuentaDinero"> Dinero en la cuenta: </span>
+  </div>
+  <div id = "botonError" class="button is-danger esconderNotificacion">
+    <button>
+  <span>
+    Saldo
+  </span>
+    </button>
+  </div> 
+<script src="retirar.js"></script>
+</body>
+</html>

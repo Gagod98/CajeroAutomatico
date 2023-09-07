@@ -9,54 +9,24 @@ const saldoInsuficiente = document.querySelector ('#botonError')
 const escondido = document.querySelector ('#botonError span')
 const saludo = document.querySelector ('#saludo')
 const botonSalir = document.querySelector ('#salir')
+const botonDepositar = document.querySelector ('#botonDepositar')
+const botonRetirar = document.querySelector ('#botonRetirar')
 
 let cuentas = null
 
-// Agrega el saldo con el boton***
-botonDeposito.addEventListener('click', function(e) {
-        const deposito = input.value
-        console.log ({deposito})
-        const valorDeposito = +deposito
-        const saldo = cuentas.saldo
-        const agregarSaldo = (saldo + valorDeposito)
-        dineroEnCuenta.innerText = agregarSaldo
-        cuentas.saldo = agregarSaldo
-        localStorage.setItem('saldo', agregarSaldo)
-})
-// Quita saldo con el boton***
-botonRetiro.addEventListener('click', function(e) {
-    const deposito = input.value
-    const valorDeposito = +deposito
-    const saldo = cuentas.saldo
-    // No deja que el saldo baje de cero y ademas agrega una alerta***
-    if ((valorDeposito > saldo)){ 
-        saldoInsuficiente.classList.remove('esconderNotificacion')
-        saldoInsuficiente.innerHTML = "Saldo insuficiente"
-        cerrarNotificacion()
-        return
-    } 
-    const agregarSaldo = (saldo - valorDeposito)
-    dineroEnCuenta.innerText = agregarSaldo
-    cuentas.saldo = agregarSaldo 
-    localStorage.setItem('saldo', agregarSaldo)
+botonSalir.addEventListener('click', function() {
+    localStorage.clear()
+    window.location = "login.html"
+    
+ })
+
+botonDepositar.addEventListener('click', function() {
+    window.location = "deposito.html"
 })
 
-botonConsulta.addEventListener('click', function(e) {
-    const deposito = input.value
-    console.log ({deposito})
-    const valorDeposito = Number(deposito)
-    const saldo = cuentas.saldo
-    const agregarSaldo = saldo 
-    dineroEnCuenta.innerText = agregarSaldo
-    cuentas.saldo = agregarSaldo
+botonRetirar.addEventListener('click', function() {
+    window.location = "retirar.html"
 })
-
-
-function cerrarNotificacion() {
-    setTimeout (() => {
-        saldoInsuficiente.classList.add('esconderNotificacion')
-    }, 3000)
-}
 
    // Sirve para cargar todo el DOM se carga TODO***
 
@@ -70,7 +40,3 @@ function cerrarNotificacion() {
     
    })
 
-   botonSalir.addEventListener('click', function() {
-   localStorage.clear()
-   window.location = "index.html"
-})
